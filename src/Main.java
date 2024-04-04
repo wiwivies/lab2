@@ -1,5 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 import java.util.List;
 public class Main {
     public static void main(String[] args) {
@@ -28,8 +29,8 @@ public class Main {
         alice.setStudentAge(11);
 
         // Виведення імені та віку студента на консоль
-        System.out.println("Student name after setter: " + alice.getStudentName());
-        System.out.println("Student age after setter: " + alice.getStudentAge());
+        System.out.println(STR."Student name after setter: \{alice.getStudentName()}");
+        System.out.println(STR."Student age after setter: \{alice.getStudentAge()}");
 
         // Запис студентів на курси
         alice.enrollCourse(mathCourse);
@@ -43,12 +44,12 @@ public class Main {
 
         // Перевірка та вивід списку курсів
         if (!enrolledCourses.isEmpty()) {
-            System.out.println("Enrolled courses for " + alice.getStudentName() + ":");
+            System.out.println(STR."Enrolled courses for \{alice.getStudentName()}:");
             for (Course course : enrolledCourses) {
                 System.out.println(course.getCourseName());
             }
         } else {
-            System.out.println("Student " + alice.getStudentName() + " is not enrolled in any courses.");
+            System.out.println(STR."Student \{alice.getStudentName()} is not enrolled in any courses.");
         }
 
         // Виставлення оцінок студентам
@@ -62,24 +63,24 @@ public class Main {
         for (Grade grade : mathInstructor.getGradesArchive()) {
             String studentName = grade.getStudent().getStudentName();
             int studentGrade = grade.getGrade();
-            System.out.println(studentName + ": " + studentGrade);
+            System.out.println(STR."\{studentName}: \{studentGrade}");
         }
 
         System.out.println("\nPhysics Instructor's Grade Archive:");
         for (Grade grade : physicsInstructor.getGradesArchive()) {
-            System.out.println(grade.getStudent().getStudentName() + ": " + grade.getGrade());
+            System.out.println(STR."\{grade.getStudent().getStudentName()}: \{grade.getGrade()}");
         }
 
         alice.dropCourse(mathCourse);
         // перевірка
-        List<Course> finalCourse = alice.getEnrolledCourses();
-        if (!finalCourse.isEmpty()) {
-            System.out.println("Enrolled courses for " + alice.getStudentName() + ":");
-            for (Course course : finalCourse) {
+        enrolledCourses = alice.getEnrolledCourses();
+        if (!enrolledCourses.isEmpty()) {
+            System.out.println(STR."Enrolled courses for \{alice.getStudentName()}:");
+            for (Course course : enrolledCourses) {
                 System.out.println(course.getCourseName());
             }
         } else {
-            System.out.println("Student " + alice.getStudentName() + " is not enrolled in any courses.");
+            System.out.println(STR."Student \{alice.getStudentName()} is not enrolled in any courses.");
         }
 
         // перевірка чи залишилась оцінка студентки після закінчення курсу
@@ -87,7 +88,7 @@ public class Main {
         for (Grade grade : mathInstructor.getGradesArchive()) {
             String studentName = grade.getStudent().getStudentName();
             int studentGrade = grade.getGrade();
-            System.out.println(studentName + ": " + studentGrade);
+            System.out.println(STR."\{studentName}: \{studentGrade}");
         }
 
     }
