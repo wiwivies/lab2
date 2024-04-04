@@ -11,14 +11,12 @@ public class Student {
         this.enrolledCourses = new ArrayList<>();
         this.age= age;
     }
-
     public String getStudentName() {
         return studentName;
     }
     public int getStudentAge() {
         return age;
     }
-
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }

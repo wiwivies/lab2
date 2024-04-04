@@ -20,9 +20,16 @@ public class Main {
         // геттери
         int aliceAge = alice.getStudentAge();
         String aliceName = alice.getStudentName();
+
+        System.out.println("Student name: " + aliceName);
+        System.out.println("Student age: " + aliceAge);
         // сеттери
         alice.setStudentName("Alicie");
         alice.setStudentAge(11);
+
+        // Виведення імені та віку студента на консоль
+        System.out.println("Student name after setter: " + alice.getStudentName());
+        System.out.println("Student age after setter: " + alice.getStudentAge());
 
         // Запис студентів на курси
         alice.enrollCourse(mathCourse);
@@ -30,7 +37,6 @@ public class Main {
         charlie.enrollCourse(mathCourse);
         david.enrollCourse(physicsCourse);
         alice.enrollCourse(physicsCourse);
-
 
         // Отримання списку курсів, на які записаний студент
         List<Course> enrolledCourses = alice.getEnrolledCourses();
@@ -63,5 +69,26 @@ public class Main {
         for (Grade grade : physicsInstructor.getGradesArchive()) {
             System.out.println(grade.getStudent().getStudentName() + ": " + grade.getGrade());
         }
+
+        alice.dropCourse(mathCourse);
+        // перевірка
+        List<Course> finalCourse = alice.getEnrolledCourses();
+        if (!finalCourse.isEmpty()) {
+            System.out.println("Enrolled courses for " + alice.getStudentName() + ":");
+            for (Course course : finalCourse) {
+                System.out.println(course.getCourseName());
+            }
+        } else {
+            System.out.println("Student " + alice.getStudentName() + " is not enrolled in any courses.");
+        }
+
+        // перевірка чи залишилась оцінка студентки після закінчення курсу
+        System.out.println("Math Instructor's Grade Archive:");
+        for (Grade grade : mathInstructor.getGradesArchive()) {
+            String studentName = grade.getStudent().getStudentName();
+            int studentGrade = grade.getGrade();
+            System.out.println(studentName + ": " + studentGrade);
+        }
+
     }
 }
