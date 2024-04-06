@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Instructor implements Observer {
     private String instructorName;
 
@@ -16,6 +13,7 @@ public class Instructor implements Observer {
         this.instructorName = instructorName;
     }
 
+    // Реалізація методу update для оновлення викладача про призначення йому курсу
     @Override
     public void update(Course course) {
         System.out.println("Dear " + instructorName + ", you have been assigned as the instructor for course " + course.getCourseName());

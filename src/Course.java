@@ -8,7 +8,7 @@ interface Observer {
 public class Course {
     private String courseName;
     private Instructor instructor;
-    private List<Observer> observers;
+    private final List<Observer> observers;
 
     public Course(String courseName, Instructor instructor) {
         this.courseName = courseName;
@@ -22,7 +22,7 @@ public class Course {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
-        notifyObservers();
+        notifyObservers(); // Сповіщення всіх спостерігачів про зміну назви курсу
     }
 
     public Instructor getInstructor() {
@@ -31,25 +31,29 @@ public class Course {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
-        notifyObservers();
+        notifyObservers(); // Сповіщення всіх спостерігачів про зміну викладача курсу
     }
 
+    // Реєстрація нового спостерігача
     public void registerObserver(Observer observer) {
         observers.add(observer);
     }
 
+    // Видалення спостерігача
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
 
+    // Сповіщення всіх спостерігачів про зміни в курсі
     public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update(this);
         }
     }
 
+    // Виставлення оцінки студентові та оновлення викладача
     public void gradeStudent(Student student, int grade) {
         Grade newGrade = new Grade(student, this, grade);
-        instructor.update(this);
+        instructor.update(this); // Оновлення інструктора про виставлення оцінки
     }
 }

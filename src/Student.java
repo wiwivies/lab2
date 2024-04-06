@@ -42,6 +42,7 @@ public class Student implements Observer {
         course.removeObserver(this);
     }
 
+    // Реалізація методу update для оновлення студента про зміну викладача курсу
     @Override
     public void update(Course course) {
         System.out.println("Dear " + studentName + ", the instructor for course " + course.getCourseName() + " has been changed.");

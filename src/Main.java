@@ -1,4 +1,3 @@
-
 public class Main {
     public static void main(String[] args)
     {
@@ -23,5 +22,14 @@ public class Main {
         // Виставлення оцінок
         mathCourse.gradeStudent(student1, 85);
         mathCourse.gradeStudent(student2, 90);
+
+        // Виведення початкової назви курсу
+        System.out.println("Початкова назва курсу: " + mathCourse.getCourseName());
+
+        // Зміна назви курсу
+        mathCourse.setCourseName("Advanced Mathematics");
+
+        // Виведення нової назви курсу
+        System.out.println("Нова назва курсу: " + mathCourse.getCourseName());
     }
 }
